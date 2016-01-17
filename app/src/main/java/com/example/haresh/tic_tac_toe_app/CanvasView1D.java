@@ -1,7 +1,9 @@
 package com.example.haresh.tic_tac_toe_app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -517,6 +519,25 @@ public class CanvasView1D extends View { //you have to create a new java file an
         }
     }
 
+    public void showAlert(String str){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                    {
+                        one_player_difficult.act_1d.finish();
+                    }
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage(str).setPositiveButton("Ok!", dialogClickListener).show();
+    }
+
     public void check()
     {
         if (!oncewin)
@@ -525,14 +546,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[0][0]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -541,14 +562,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[1][0]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[1][0]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -557,14 +578,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[2][0]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[2][0]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -573,14 +594,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[0][0]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -589,14 +610,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[0][1]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][1]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -605,14 +626,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[0][2]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][2]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -621,14 +642,14 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[0][0]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
@@ -637,22 +658,22 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 if (a[0][2]==1)
                 {
-                    Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You loose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][2]==2)
                 {
-                    Toast.makeText(getContext(),"Player 2 wins!",Toast.LENGTH_SHORT).show();
-                    init();
+                    //Toast.makeText(getContext(),"You Win! ",Toast.LENGTH_SHORT).show();
+                    showAlert("You Win! ");
                     oncewin = true;
                 }
             }
 
             if (turn == 9 && !oncewin)
             {
-                Toast.makeText(getContext(),"Match results in a draw!",Toast.LENGTH_SHORT).show();
-                init();
+                //Toast.makeText(getContext(),"Match results in a draw!",Toast.LENGTH_SHORT).show();
+                showAlert("Match results in a draw!");
             }
         }
     }
