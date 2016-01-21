@@ -10,8 +10,8 @@
     tools:context="com.example.haresh.tic_tac_toe_app.one_player_easy"
     android:background="#FFF3E0">
     <com.example.haresh.tic_tac_toe_app.CanvasView1E
-        android:layout_width="660px"
-        android:layout_height="660px"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:background="#FFE7BF"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />

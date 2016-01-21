@@ -1,0 +1,71 @@
+package com.example.haresh.tic_tac_toe_app;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.content.Intent;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.Objects;
+
+public class two_player_names extends AppCompatActivity {
+
+    Button start2p;
+    EditText p1,p2;
+    static String p1Name,p2Name;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_two_player_names);
+        p1= (EditText) findViewById(R.id.p1name);
+        p2= (EditText) findViewById(R.id.p2name);
+        start2p = (Button) findViewById(R.id.start2p);
+        start2p.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intent=new Intent(two_player_names.this,two_player.class);
+                        if((!Objects.equals(p1.getText().toString(), "")) && (!Objects.equals(p2.getText().toString(), "")) && (!Objects.equals(p1.getText().toString(),p2.getText().toString()))){
+                            p1Name=p1.getText().toString();
+                            p2Name=p2.getText().toString();
+                            /*DatabaseHandler dbh=new DatabaseHandler(two_player_names.this);
+                            String tmp=dbh.checkUser(two_player_names.p1Name);
+                            if(tmp.equals("FOUND")){
+                                Toast.makeText(two_player_names.this,"found 1",Toast.LENGTH_SHORT).show();
+
+                            }
+                            else{
+                                scoreboard sb=new scoreboard(dbh.getPlayerCount()+1,two_player_names.p1Name,0);
+                                Toast.makeText(two_player_names.this,"ading  1",Toast.LENGTH_SHORT).show();
+                                dbh.addScore(sb);
+                            }
+
+                            String tmp2=dbh.checkUser(two_player_names.p2Name);
+                            if(tmp2.equals("FOUND")){
+                                Toast.makeText(two_player_names.this,"found 2",Toast.LENGTH_SHORT).show();
+
+                            }
+                            else{
+                                scoreboard sb=new scoreboard(dbh.getPlayerCount(),two_player_names.p2Name,0);
+                                Toast.makeText(two_player_names.this,"ading 2",Toast.LENGTH_SHORT).show();
+                                dbh.addScore(sb);
+                            }*/
+                            startActivity(intent);
+                        }
+                        else if(Objects.equals(p1.getText().toString(), "")){
+                            p1.setError("Enter Player 1 Name");
+                        }
+                        else if(Objects.equals(p2.getText().toString(), "")){
+                            p2.setError("Enter Player 2 Name");
+                        }
+                        else{
+                            Toast.makeText(two_player_names.this,"Enter different names",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+    }
+}

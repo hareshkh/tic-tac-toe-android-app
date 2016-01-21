@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.haresh.tic_tac_toe_app.two_player_names"
+    android:background="#FFF3E0">
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:id="@+id/start2p"
+        android:background="#FFA726"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:singleLine="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="125dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/p1name"
+        android:layout_marginTop="48dp"
+        android:hint="Player 1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2name"
+        android:hint="Player 2"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/p1name"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

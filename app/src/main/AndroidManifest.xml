@@ -10,7 +10,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,10 +21,14 @@
         </activity>
         <activity
             android:name=".two_player"
-            android:label="Two Player" />
+            android:label="Two Player"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".one_player"
-            android:label="Select Level" />
+            android:label="Select Level"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -33,13 +39,34 @@
 
         <activity
             android:name=".about"
-            android:label="About" />
+            android:label="About"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".one_player_easy"
-            android:label="One Player (Easy)" />
+            android:label="One Player (Easy)"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".one_player_difficult"
-            android:label="One Player (Hard)" />
+            android:label="One Player (Hard)"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".two_player_selector"
+            android:label="Two Player Menu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".two_player_names"
+            android:label="Enter your Names"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".highscores2p"
+            android:label="High Scores"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
