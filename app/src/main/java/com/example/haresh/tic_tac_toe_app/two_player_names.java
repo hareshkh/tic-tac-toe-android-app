@@ -29,30 +29,29 @@ public class two_player_names extends AppCompatActivity {
                     public void onClick(View v){
                         Intent intent=new Intent(two_player_names.this,two_player.class);
                         if((!Objects.equals(p1.getText().toString(), "")) && (!Objects.equals(p2.getText().toString(), "")) && (!Objects.equals(p1.getText().toString(),p2.getText().toString()))){
-                            p1Name=p1.getText().toString();
-                            p2Name=p2.getText().toString();
-                            /*DatabaseHandler dbh=new DatabaseHandler(two_player_names.this);
+                            p1Name=p1.getText().toString().trim().toUpperCase();
+                            p2Name=p2.getText().toString().trim().toUpperCase();
+                            DatabaseHandler dbh=new DatabaseHandler(two_player_names.this);
                             String tmp=dbh.checkUser(two_player_names.p1Name);
                             if(tmp.equals("FOUND")){
-                                Toast.makeText(two_player_names.this,"found 1",Toast.LENGTH_SHORT).show();
-
+                                //Toast.makeText(two_player_names.this,"found 1",Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                scoreboard sb=new scoreboard(dbh.getPlayerCount()+1,two_player_names.p1Name,0);
-                                Toast.makeText(two_player_names.this,"ading  1",Toast.LENGTH_SHORT).show();
+                                scoreboard sb=new scoreboard(dbh.getPlayerCount(),two_player_names.p1Name,0);
+                                //Toast.makeText(two_player_names.this,"adding  1",Toast.LENGTH_SHORT).show();
                                 dbh.addScore(sb);
                             }
 
                             String tmp2=dbh.checkUser(two_player_names.p2Name);
                             if(tmp2.equals("FOUND")){
-                                Toast.makeText(two_player_names.this,"found 2",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(two_player_names.this,"found 2",Toast.LENGTH_SHORT).show();
 
                             }
                             else{
                                 scoreboard sb=new scoreboard(dbh.getPlayerCount(),two_player_names.p2Name,0);
-                                Toast.makeText(two_player_names.this,"ading 2",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(two_player_names.this,"adding 2",Toast.LENGTH_SHORT).show();
                                 dbh.addScore(sb);
-                            }*/
+                            }
                             startActivity(intent);
                         }
                         else if(Objects.equals(p1.getText().toString(), "")){

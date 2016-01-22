@@ -28,7 +28,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_SCORES + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," + KEY_SCORE + " INTEGER)");
+        db.execSQL("CREATE TABLE " + TABLE_SCORES + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," + KEY_SCORE + " INTEGER" + ")");
     }
 
     @Override
@@ -40,8 +40,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, sb.get_name()); // Contact Name
-        values.put(KEY_SCORE, sb.get_score()); // Contact Phone Number
+        values.put(KEY_NAME, sb.get_name()); // Contact name
+        values.put(KEY_SCORE, sb.get_score()); // Contact score
 
         // Inserting Row
         db.insert(TABLE_SCORES, null, values);
@@ -54,11 +54,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_SCORES, new String[]{KEY_ID,
                         KEY_NAME, KEY_SCORE}, KEY_NAME + " = ?",
                 new String[]{String.valueOf(name)}, null, null, null, null);
-        if(cursor!=null){
+        if(cursor.getCount()>0){
             return "FOUND";
         }
         return "NOT FOUND";
     }
+
     public scoreboard getPlayer(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -112,8 +113,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_SCORES;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.close();
-
         // return count
         return cursor.getCount();
     }

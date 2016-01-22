@@ -179,7 +179,7 @@ public class CanvasView extends View { //you have to create a new java file and 
                 dbh.updatePlayer(sb2);
             }
             else{
-                scoreboard sb=new scoreboard(dbh.getPlayerCount()+1,two_player_names.p2Name,1);
+                scoreboard sb=new scoreboard(dbh.getPlayerCount(),two_player_names.p2Name,1);
                 dbh.addScore(sb);
             }
         }
@@ -195,14 +195,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -213,14 +213,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[1][0]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -231,14 +231,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[2][0]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -249,14 +249,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -267,14 +267,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[0][1]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -285,14 +285,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[0][2]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -303,14 +303,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -321,14 +321,14 @@ public class CanvasView extends View { //you have to create a new java file and 
                 {
                     //Toast.makeText(getContext(),"Player 1 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p1Name + " wins! ");
-                    //updateWin(1);
+                    updateWin(1);
                     oncewin = true;
                 }
                 else if(a[0][2]==2)
                 {
                     //Toast.makeText(getContext(),"Player 2 wins! ",Toast.LENGTH_SHORT).show();
                     showAlert(two_player_names.p2Name + " wins! ");
-                    //updateWin(2);
+                    updateWin(2);
                     oncewin = true;
                 }
             }
@@ -337,7 +337,7 @@ public class CanvasView extends View { //you have to create a new java file and 
             {
                 //Toast.makeText(getContext(),"Match results in a draw!",Toast.LENGTH_SHORT).show();
                 showAlert("Match results in a draw!");
-                //updateWin(0);
+                updateWin(0);
             }
         }
     }
