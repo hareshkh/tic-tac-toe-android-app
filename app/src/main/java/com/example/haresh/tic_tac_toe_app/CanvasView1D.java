@@ -26,6 +26,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
     Paint painto = new Paint();
     Paint painto1 = new Paint();
     boolean oncewin = false;
+    boolean oncedrawen = false;
     int sum = 0;
     int[][] a = new int[3][3];
     float[][] midx = new float[3][3];
@@ -47,6 +48,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
         }
 
         oncewin=false;
+        oncedrawen = false;
         turn = 0;
     }
 
@@ -79,21 +81,21 @@ public class CanvasView1D extends View { //you have to create a new java file an
         super.onDraw(canvas);
         Resources r = getResources();
         float pxi = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 300, r.getDisplayMetrics());
-        canvasSide=pxi;
-        cellSide=canvasSide/3;
+        canvasSide = pxi;
+        cellSide = canvasSide / 3;
         canvas.drawLine(cellSide, 0, cellSide, canvasSide, paint);
         canvas.drawLine(2 * cellSide, 0, 2 * cellSide, canvasSide, paint);
         canvas.drawLine(0, cellSide, canvasSide, cellSide, paint);
         canvas.drawLine(0, 2 * cellSide, canvasSide, 2 * cellSide, paint);
-        for (int row=0;row<3;row++) {
+        for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
-                if (a[row][col]==1) {
+                if (a[row][col] == 1) {
                     canvas.drawLine((midx[row][col] - ((4*cellSide)/11)), (midy[row][col] - ((4*cellSide)/11)), (midx[row][col] + ((4*cellSide)/11)), (midy[row][col] + ((4*cellSide)/11)), paintx);
                     canvas.drawLine((midx[row][col] + ((4*cellSide)/11)), (midy[row][col] - ((4*cellSide)/11)), (midx[row][col] - ((4*cellSide)/11)), (midy[row][col] + ((4*cellSide)/11)), paintx);
                 }
                 else if (a[row][col]==2){
-                    canvas.drawCircle(midx[row][col],midy[row][col], (float) ((4*cellSide)/11),painto);
-                    canvas.drawCircle(midx[row][col],midy[row][col], (float) ((13*cellSide)/44),painto1);
+                    canvas.drawCircle(midx[row][col],midy[row][col], (4*cellSide)/11,painto);
+                    canvas.drawCircle(midx[row][col],midy[row][col], (13*cellSide)/44,painto1);
                 }
             }
         }
@@ -102,6 +104,9 @@ public class CanvasView1D extends View { //you have to create a new java file an
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction()==MotionEvent.ACTION_DOWN) {
+            if (oncedrawen || oncewin){
+                one_player_difficult.act_1d.finish();
+            }
             float touchX = event.getX();
             float touchY = event.getY();
             if (touchX < canvasSide && touchX > 0 && touchY < canvasSide && touchX > 0) {
@@ -116,19 +121,17 @@ public class CanvasView1D extends View { //you have to create a new java file an
 
                     postInvalidate();
                     check();
-                    sum = 0;
-                    for (int i=0;i<3;i++)
-                    {
-                        for (int j=0;j<3;j++)
-                        {
-                            sum+=a[i][j];
+                    if (!oncedrawen && !oncewin) {
+                        sum = 0;
+                        for (int i = 0; i < 3; i++) {
+                            for (int j = 0; j < 3; j++) {
+                                sum += a[i][j];
+                            }
                         }
-                    }
-                    if (!oncewin)
                         makeOwn();
-
-                    postInvalidate();
-                    check();
+                        postInvalidate();
+                        check();
+                    }
                 }
             }
         }
@@ -683,6 +686,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
             {
                 //Toast.makeText(getContext(),"Match results in a draw!",Toast.LENGTH_SHORT).show();
                 showAlert("Match results in a draw!");
+                oncedrawen = true;
             }
         }
     }

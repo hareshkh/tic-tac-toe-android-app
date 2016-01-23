@@ -98,6 +98,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact list
         return scoreList;
     }
+
     public int updatePlayer(scoreboard sb) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -109,11 +110,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return db.update(TABLE_SCORES, values, KEY_NAME + " = ?",
                 new String[] { String.valueOf(sb.get_name()) });
     }
+
     public int getPlayerCount() {
         String countQuery = "SELECT  * FROM " + TABLE_SCORES;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         // return count
         return cursor.getCount();
+    }
+
+    public void deleteAll()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //db.delete(TABLE_NAME,null,null);
+        db.execSQL("delete from "+ TABLE_SCORES);
+        //db.execSQL("TRUNCATE table" + TABLE_NAME);
+        //db.close();
     }
 }

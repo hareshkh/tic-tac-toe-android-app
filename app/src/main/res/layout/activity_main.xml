@@ -19,6 +19,7 @@
         android:clickable="false"
         android:background="#FFA726"
         android:textColor="#ffffff"
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -30,7 +31,8 @@
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/b1"
         android:background="#FFA726"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:textSize="20dp"/>
 
     <Button
         android:layout_width="200dp"
@@ -42,6 +44,6 @@
         android:layout_marginBottom="77dp"
         android:textColor="#ffffff"
         android:background="#FFA726"
-        android:shadowColor="#FFE0B2" />
+        android:textSize="20dp"/>
 
 </RelativeLayout>

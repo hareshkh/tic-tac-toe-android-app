@@ -26,6 +26,7 @@ public class CanvasView1E extends View { //you have to create a new java file an
     Paint painto = new Paint();
     Paint painto1 = new Paint();
     boolean oncewin = false;
+    boolean oncedrawen = false;
     int[][] a = new int[3][3];
     float[][] midx = new float[3][3];
     float[][] midy = new float[3][3];
@@ -46,6 +47,7 @@ public class CanvasView1E extends View { //you have to create a new java file an
         }
 
         oncewin=false;
+        oncedrawen = false;
         turn = 0;
     }
 
@@ -101,6 +103,9 @@ public class CanvasView1E extends View { //you have to create a new java file an
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction()==MotionEvent.ACTION_DOWN) {
+            if (oncedrawen || oncewin){
+                one_player_easy.act_1e.finish();
+            }
             float touchX = event.getX();
             float touchY = event.getY();
             if (touchX < canvasSide && touchX > 0 && touchY < canvasSide && touchX > 0) {
@@ -114,11 +119,11 @@ public class CanvasView1E extends View { //you have to create a new java file an
                     }
                     postInvalidate();
                     check();
-                    if (!oncewin)
+                    if (!oncewin && !oncedrawen) {
                         makeOwn();
-
-                    postInvalidate();
-                    check();
+                        postInvalidate();
+                        check();
+                    }
                 }
             }
         }
@@ -610,6 +615,7 @@ public class CanvasView1E extends View { //you have to create a new java file an
             {
                 //Toast.makeText(getContext(),"Match results in a draw!",Toast.LENGTH_SHORT).show();
                 showAlert("Match results in a draw!");
+                oncedrawen = true;
             }
         }
     }
