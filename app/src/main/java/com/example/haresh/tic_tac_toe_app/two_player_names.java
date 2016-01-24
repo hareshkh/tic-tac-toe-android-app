@@ -28,7 +28,7 @@ public class two_player_names extends AppCompatActivity {
                     @Override
                     public void onClick(View v){
                         Intent intent=new Intent(two_player_names.this,two_player.class);
-                        if((!Objects.equals(p1.getText().toString(), "")) && (!Objects.equals(p2.getText().toString(), "")) && (!Objects.equals(p1.getText().toString(),p2.getText().toString()))){
+                        if((!Objects.equals(p1.getText().toString(), "")) && (!Objects.equals(p2.getText().toString(), "")) && (!Objects.equals(p1.getText().toString(),p2.getText().toString())) && (p1.getText().toString().length()<=10) && (p2.getText().toString().length()<=10)){
                             p1Name=p1.getText().toString().trim().toUpperCase();
                             p2Name=p2.getText().toString().trim().toUpperCase();
                             DatabaseHandler dbh=new DatabaseHandler(two_player_names.this);
@@ -60,8 +60,14 @@ public class two_player_names extends AppCompatActivity {
                         else if(Objects.equals(p2.getText().toString(), "")){
                             p2.setError("Enter Player 2 Name");
                         }
-                        else{
+                        else if(Objects.equals(p1.getText().toString(),p2.getText().toString())){
                             Toast.makeText(two_player_names.this,"Enter different names",Toast.LENGTH_SHORT).show();
+                        }
+                        else if(p1.getText().toString().length()>10){
+                            Toast.makeText(two_player_names.this, "Shorten player 1 name", Toast.LENGTH_SHORT).show();
+                        }
+                        else if(p2.getText().toString().length()>10){
+                            Toast.makeText(two_player_names.this, "Shorten player 2 name", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
