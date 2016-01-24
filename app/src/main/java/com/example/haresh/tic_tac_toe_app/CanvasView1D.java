@@ -559,7 +559,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[0][0]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
@@ -575,7 +575,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[1][0]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[1][0]==2)
@@ -591,7 +591,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[2][0]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[2][0]==2)
@@ -607,7 +607,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[0][0]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
@@ -623,7 +623,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[0][1]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][1]==2)
@@ -639,7 +639,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[0][2]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][2]==2)
@@ -655,7 +655,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[0][0]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][0]==2)
@@ -671,7 +671,7 @@ public class CanvasView1D extends View { //you have to create a new java file an
                 if (a[0][2]==1)
                 {
                     //Toast.makeText(getContext(),"You loose! Better luck next time!! ",Toast.LENGTH_SHORT).show();
-                    showAlert("You loose! Better luck next time!! ");
+                    showAlert("You lose! Better luck next time!! ");
                     oncewin = true;
                 }
                 else if(a[0][2]==2)

@@ -29,9 +29,7 @@ public class scoreboard {
         return _score;
     }
 
-    public void set_score(int _score) {
-        this._score = _score;
-    }
+    public void set_score(int _score) { this._score = _score; }
 
     public int get_id() {
         return _id;

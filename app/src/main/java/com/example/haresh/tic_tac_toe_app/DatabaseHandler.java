@@ -46,6 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_SCORES, null, values);
         db.close(); // Closing database connection
+        //sortTable();
     }
 
     public String checkUser(String name) {
@@ -106,6 +107,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_NAME, sb.get_name());
         values.put(KEY_SCORE, sb.get_score());
 
+        //sortTable();
         // updating row
         return db.update(TABLE_SCORES, values, KEY_NAME + " = ?",
                 new String[] { String.valueOf(sb.get_name()) });
@@ -127,4 +129,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //db.execSQL("TRUNCATE table" + TABLE_NAME);
         //db.close();
     }
+
+    /*public void sortTable()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("SELECT * FROM " + TABLE_SCORES + " ORDER BY "+KEY_NAME+", "+KEY_SCORE+" DESC;");
+    }*/
 }
