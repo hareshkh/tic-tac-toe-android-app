@@ -7,18 +7,28 @@ import android.widget.Button;
 import android.content.Intent;
 
 public class two_player_selector extends AppCompatActivity {
-    Button play2p,high2p;
+    Button singleplay2p,doubleplay2p,high2p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_player_selector);
-        play2p = (Button) findViewById(R.id.play2p);
+        singleplay2p = (Button) findViewById(R.id.singleplay2p);
+        doubleplay2p = (Button) findViewById(R.id.doubleplay2p);
         high2p = (Button) findViewById(R.id.high2P);
-        play2p.setOnClickListener(
+        singleplay2p.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent=new Intent(two_player_selector.this,two_player_names.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+        doubleplay2p.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(two_player_selector.this,BluetoothActivity.class);
                         startActivity(intent);
                     }
                 }
