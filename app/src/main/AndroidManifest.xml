@@ -17,6 +17,13 @@
             android:configChanges="orientation"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".SplashScreen"
+            android:configChanges="orientation"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,14 +40,6 @@
             android:configChanges="orientation"
             android:label="Select Level"
             android:screenOrientation="portrait" />
-        <!--
-             ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <activity
             android:name=".about"
             android:configChanges="orientation"
@@ -72,7 +71,14 @@
             android:label="High Scores"
             android:screenOrientation="portrait" />
         <activity android:name=".BluetoothActivity" />
-        <activity android:name=".SingleDevice2P"></activity>
+        <activity android:name=".SingleDevice2P" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
