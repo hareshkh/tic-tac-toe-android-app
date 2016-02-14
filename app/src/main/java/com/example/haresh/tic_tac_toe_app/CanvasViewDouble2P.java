@@ -152,6 +152,12 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                         check();
                     }
                     else{
+                        try {
+                            bluetoothSocket.close();
+                            connectedThread.stop();
+                        } catch (Exception e) {
+                            Log.d(TAG,"exception " + e.getMessage());
+                        }
                         TwoDevice2P.act_2p.finish();
                     }
                 }
@@ -167,12 +173,13 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                     {
-                        TwoDevice2P.act_2p.finish();
                         try {
                             bluetoothSocket.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            connectedThread.stop();
+                        } catch (Exception e) {
+                            Log.d(TAG, "exception " + e.getMessage());
                         }
+                        TwoDevice2P.act_2p.finish();
                     }
                     case DialogInterface.BUTTON_NEGATIVE:
                         //No button clicked
