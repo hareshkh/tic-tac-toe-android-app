@@ -35,7 +35,6 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
     Context ctx;
     float canvasSide,cellSide;
     DatabaseHandler dbh;
-
     boolean touchEnabled = true;
 
     BluetoothSocket bluetoothSocket;
@@ -116,6 +115,7 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                 }
             }
         }
+        check();
     }
 
     @Override
@@ -153,10 +153,10 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                     }
                     else{
                         try {
+                            connectedThread=null;
                             bluetoothSocket.close();
-                            connectedThread.stop();
                         } catch (Exception e) {
-                            Log.d(TAG,"exception " + e.getMessage());
+                            Log.e(TAG,"exception " + e.getMessage());
                         }
                         TwoDevice2P.act_2p.finish();
                     }
@@ -174,8 +174,8 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                     case DialogInterface.BUTTON_POSITIVE:
                     {
                         try {
+                            connectedThread=null;
                             bluetoothSocket.close();
-                            connectedThread.stop();
                         } catch (Exception e) {
                             Log.d(TAG, "exception " + e.getMessage());
                         }
@@ -453,17 +453,14 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
             }
         }
 
-        /**
-         * Write to the connected OutStream.
-         *
-         * @param buffer The bytes to write
-         */
         public void write(byte[] buffer) {
-            try {
-                Log.d(TAG, "Writing ");
-                mmOutStream.write(buffer);
-            } catch (IOException e) {
-                Log.e(TAG, "Exception during write", e);
+            if(!oncewin && !oncedrawen) {
+                try {
+                    Log.d(TAG, "Writing ");
+                    mmOutStream.write(buffer);
+                } catch (IOException e) {
+                    Log.e(TAG, "Exception during write", e);
+                }
             }
         }
 
