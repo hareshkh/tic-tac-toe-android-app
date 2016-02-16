@@ -167,6 +167,7 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
     }
 
     public void showAlert(String str){
+        touchEnabled = true;
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
