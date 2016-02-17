@@ -4,4 +4,4 @@ This is the famous Tic Tac Toe game for Android 4.4 and higher. This game allows
 
 
 
-Feel free to send and suggestions or bugs to khanna.haresh@yahoo.co.in
+Feel free to send and suggestions or information about bugs to khanna.haresh@yahoo.co.in
