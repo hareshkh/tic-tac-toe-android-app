@@ -15,34 +15,33 @@
         android:layout_height="wrap_content"
         android:text="Single Device"
         android:id="@+id/singleplay2p"
-        android:layout_marginTop="80dp"
         android:background="#FFA726"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Two Devices"
         android:id="@+id/doubleplay2p"
-        android:layout_marginTop="215dp"
         android:background="#FFA726"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="HIGH SCORES"
         android:id="@+id/high2P"
-        android:layout_marginBottom="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="#FFA726"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/doubleplay2p"
+        android:layout_marginBottom="83dp" />
 </RelativeLayout>

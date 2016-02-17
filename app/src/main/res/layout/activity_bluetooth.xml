@@ -7,20 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.haresh.tic_tac_toe_app.BluetoothActivity">
+    tools:context="com.example.haresh.tic_tac_toe_app.BluetoothActivity"
+    android:background="#FFF3E0">
 
     <ToggleButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bluetooth"
         android:layout_centerHorizontal="true"
         android:id="@+id/toggleButton"
-        android:onClick="onToggleClicked"/>
+        android:onClick="onToggleClicked"
+        android:background="#FFA726"
+        android:textColor="#FFFFFF"
+        android:textOff="Bluetooth OFF"
+        android:textOn="Bluetooth ON"
+        android:textSize="20dp" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_below="@+id/toggleButton"
-        android:layout_alignParentEnd="true"></ListView>
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
