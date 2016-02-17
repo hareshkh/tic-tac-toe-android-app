@@ -18,14 +18,17 @@
         android:onClick="onToggleClicked"
         android:background="#FFA726"
         android:textColor="#FFFFFF"
-        android:textOff="Bluetooth OFF"
-        android:textOn="Bluetooth ON"
+        android:textOff="Start"
+        android:textOn="Stop"
         android:textSize="20dp" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/toggleButton"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
+
 
 </RelativeLayout>
