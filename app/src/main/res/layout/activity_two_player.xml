@@ -7,10 +7,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.haresh.tic_tac_toe_app.two_player"
+    tools:context=".TwoDevice2P"
     android:background="#FFF3E0"
     android:orientation="horizontal">
-    <com.example.haresh.tic_tac_toe_app.CanvasView
+    <com.example.haresh.tic_tac_toe_app.CanvasViewDouble2P
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="#FFE7BF"

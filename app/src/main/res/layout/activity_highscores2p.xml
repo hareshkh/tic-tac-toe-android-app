@@ -49,6 +49,7 @@
         android:text="CLEAR"
         android:id="@+id/clear"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="#FFA726"
         android:textColor="#FFFFFF"
