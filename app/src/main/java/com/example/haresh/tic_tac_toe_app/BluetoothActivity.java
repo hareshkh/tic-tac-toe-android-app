@@ -30,9 +30,12 @@ public class BluetoothActivity extends Activity {
     private ArrayAdapter adapter;
     private static final int ENABLE_BT_REQUEST_CODE = 1;
     private static final int DISCOVERABLE_BT_REQUEST_CODE = 2;
+    private static final int Finished_Activity = 3;
     private static final int DISCOVERABLE_DURATION = 300;
     public static BluetoothDevice mBluetoothDevice = null;
     public static BluetoothSocket mBluetoothSocket = null;
+    ListeningThread t = null;
+    ConnectingThread ct = null;
 
 
     private final static UUID uuid = UUID.fromString("fc5ffc49-00e3-4c8b-9cf1-6b72aad1001a");
@@ -61,15 +64,20 @@ public class BluetoothActivity extends Activity {
                 String MAC = itemValue.substring(itemValue.length() - 17);
                 BluetoothDevice bluetoothDevice = bluetoothAdapter.getRemoteDevice(MAC);
 
-                ConnectingThread t = new ConnectingThread(bluetoothDevice);
-                t.start();
+                ct = new ConnectingThread(bluetoothDevice);
+                ct.start();
             }
         });
 
         adapter = new ArrayAdapter (this,android.R.layout.simple_list_item_1);
         listview.setAdapter(adapter);
-
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        if (bluetoothAdapter.isEnabled()){
+            bluetoothAdapter.disable();
+            toggleButton.setChecked(false);
+            adapter.clear();
+        }
     }
 
     public void onToggleClicked(View view) {
@@ -102,10 +110,10 @@ public class BluetoothActivity extends Activity {
             if (resultCode == Activity.RESULT_OK) {
                 Toast.makeText(getApplicationContext(), "Bluetooth enabled." + "\n" + "Scanning for peers", Toast.LENGTH_SHORT).show();
 
-                discoverDevices();
                 makeDiscoverable();
+                discoverDevices();
 
-                ListeningThread t = new ListeningThread();
+                t = new ListeningThread();
                 t.start();
 
             }
@@ -121,6 +129,12 @@ public class BluetoothActivity extends Activity {
             else {
                 Toast.makeText(getApplicationContext(), "Fail to enable discoverable mode.", Toast.LENGTH_SHORT).show();
             }
+        }
+
+        else if(resultCode == Finished_Activity){
+            bluetoothAdapter.disable();
+            adapter.clear();
+            toggleButton.setChecked(false);
         }
     }
 
@@ -157,7 +171,7 @@ public class BluetoothActivity extends Activity {
         mBluetoothDevice = device;
         mBluetoothSocket = socket;
         Intent intent = new Intent(this,TwoDevice2P.class);
-        startActivity(intent);
+        startActivityForResult(intent,Finished_Activity);
 
     }
 

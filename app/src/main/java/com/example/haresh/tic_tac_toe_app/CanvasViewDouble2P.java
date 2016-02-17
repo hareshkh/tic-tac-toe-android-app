@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -158,6 +159,8 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                         } catch (Exception e) {
                             Log.e(TAG,"exception " + e.getMessage());
                         }
+                        Intent intent =new Intent();
+                        TwoDevice2P.act_2p.setResult(3, intent);
                         TwoDevice2P.act_2p.finish();
                     }
                 }
@@ -180,6 +183,8 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                         } catch (Exception e) {
                             Log.d(TAG, "exception " + e.getMessage());
                         }
+                        Intent intent = new Intent();
+                        TwoDevice2P.act_2p.setResult(3, intent);
                         TwoDevice2P.act_2p.finish();
                     }
                     case DialogInterface.BUTTON_NEGATIVE:
