@@ -20,6 +20,7 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/b2"
         android:layout_alignStart="@+id/b2"
         android:layout_marginTop="83dp" />
 
@@ -43,6 +44,7 @@
         android:background="#FFA726"
         android:textSize="20dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/b2"
         android:layout_alignStart="@+id/b2"
         android:layout_marginBottom="83dp" />
 
