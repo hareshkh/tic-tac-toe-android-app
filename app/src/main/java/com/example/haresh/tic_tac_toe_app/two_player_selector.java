@@ -28,7 +28,7 @@ public class two_player_selector extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(two_player_selector.this,BluetoothActivity.class);
+                        Intent intent=new Intent(two_player_selector.this,TwoDevice2P_names.class);
                         startActivity(intent);
                     }
                 }

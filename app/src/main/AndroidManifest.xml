@@ -16,9 +16,7 @@
             android:name=".MainActivity"
             android:configChanges="orientation"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation"
@@ -79,6 +77,8 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".TwoDevice2P_names"></activity>
     </application>
 
 </manifest>
