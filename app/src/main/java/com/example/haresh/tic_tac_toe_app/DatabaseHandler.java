@@ -79,7 +79,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<scoreboard> getAllContacts() {
         List<scoreboard> scoreList = new ArrayList<scoreboard>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_SCORES;
+        String selectQuery = "SELECT  * FROM " + TABLE_SCORES + " ORDER BY " + KEY_SCORE + " DESC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
