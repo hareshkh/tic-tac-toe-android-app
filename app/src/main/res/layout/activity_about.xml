@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Developed by:\nHaresh Khanna\nkhanna.haresh@yahoo.co.in"
+        android:text="Developed by:\nHaresh Khanna\nkhanna.haresh@yahoo.co.in\nHarjot Singh Oberai\nharjot.oberai@gmail.com"
         android:id="@+id/textView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
@@ -30,6 +30,7 @@
         android:text="Feel free to contribute on https://github.com/hareshkh/tic_tac_toe_app"
         android:id="@+id/textView2"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textAlignment="center"
         android:textColor="#F57C00" />
