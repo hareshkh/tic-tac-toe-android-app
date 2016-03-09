@@ -45,7 +45,7 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
     public static int turn = 0;
 
     public static ConnectedThread connectedThread = null;
-
+    AlertDialog alert = null;
 
     public void init(){
         Resources r = getResources();
@@ -222,6 +222,9 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                     case DialogInterface.BUTTON_POSITIVE:
                     {
                         try {
+                            String endMsg = "END";
+                            byte[] ByteArray = endMsg.getBytes();
+                            connectedThread.write(ByteArray);
                             connectedThread.cancel();
                             connectedThread = null;
                             bluetoothSocket.close();
@@ -231,15 +234,23 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                         Intent intent = new Intent();
                         TwoDevice2P.act_2p.setResult(3, intent);
                         TwoDevice2P.act_2p.finish();
+                        break;
                     }
                     case DialogInterface.BUTTON_NEGATIVE:
-                        //No button clicked
+                    {
+                        String msg = "REMATCH";
+                        byte[] ByteArray = msg.getBytes();
+                        connectedThread.write(ByteArray);
+                        init();
+                        postInvalidate();
                         break;
+                    }
                 }
             }
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMessage(str).setPositiveButton("Ok!", dialogClickListener).show();
+        builder.setMessage(str).setPositiveButton("OK", dialogClickListener).setNegativeButton("REMATCH", dialogClickListener).show();
+        alert = builder.create();
     }
 
     public void updateWin(int i){
@@ -486,9 +497,9 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                     String readMessage = "";
                     bytes = mmInStream.read(buffer);
                     readMessage = new String(buffer, 0, bytes);
+                    Log.i(TAG, "Listening : " + readMessage);
                     if(readMessage.contains(";")){
                         // Send the obtained bytes to the UI Activity
-                        Log.i(TAG, "Listening : " + readMessage);
                         a[0][0] = (int)(readMessage.charAt(0)-48);
                         a[0][1] = (int)(readMessage.charAt(1)-48);
                         a[0][2] = (int)(readMessage.charAt(2)-48);
@@ -510,6 +521,32 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                             check();
                         }
                     }
+                    else if(readMessage.equals("REMATCH")){
+                        TwoDevice2P.act_2p.runOnUiThread(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if(alert.isShowing()){
+                                            alert.dismiss();
+                                            alert = null;
+                                        }
+                                    }
+                                }
+                        );
+                        init();
+                        postInvalidate();
+                        TwoDevice2P.act_2p.runOnUiThread(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(TwoDevice2P.act_2p, TwoDevice2P_names.MyName + " vs " + TwoDevice2P_names.OpponentName, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                        );
+                    }
+                    else if(readMessage.equals("END")){
+                        break;
+                    }
                     else{
                         try{
                             Log.i(TAG,"Hello");
@@ -530,9 +567,7 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
                     }
                 } catch (Exception e) {
                     //Log.e(TAG, "disconnected", e);
-                    //TwoDevice2P.act_2p.finish();
-                    //connectionLost();
-                    //break;
+                    break;
                 }
             }
         }
