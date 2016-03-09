@@ -138,15 +138,19 @@ public class CanvasViewSingle2P extends View { //you have to create a new java f
                     case DialogInterface.BUTTON_POSITIVE:
                     {
                         SingleDevice2P.act_2p_single.finish();
+                        break;
                     }
                     case DialogInterface.BUTTON_NEGATIVE:
-                        //No button clicked
+                    {
+                        init();
+                        postInvalidate();
                         break;
+                    }
                 }
             }
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMessage(str).setPositiveButton("Ok!", dialogClickListener).show();
+        builder.setMessage(str).setPositiveButton("OK", dialogClickListener).setNegativeButton("REMATCH",dialogClickListener).show();
     }
 
 
