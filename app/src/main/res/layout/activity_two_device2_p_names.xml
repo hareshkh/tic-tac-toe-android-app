@@ -16,6 +16,16 @@
         android:id="@+id/myName"
         android:layout_marginTop="40dp"
         android:hint="Your Name"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/myName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,4 +35,6 @@
         android:textSize="20dp"
         android:id="@+id/btn_find"
         android:layout_alignParentBottom="true"/>
+
+
 </RelativeLayout>

@@ -11,7 +11,7 @@
     android:background="#FFF3E0">
 
     <Button
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="ONE PLAYER"
         android:id="@+id/b1"
@@ -20,23 +20,90 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/b2"
-        android:layout_alignStart="@+id/b2"
-        android:layout_marginTop="83dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="TWO PLAYER"
         android:id="@+id/b2"
         android:background="#FFA726"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/b1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RGsinglePlayer"
+        android:layout_below="@+id/b1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp"
+        android:visibility="invisible">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Easy"
+            android:textSize="20dp"
+            android:id="@+id/easyRBtn"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Difficult"
+            android:textSize="20dp"
+            android:id="@+id/difficultRBtn"/>
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RGtwoPlayer"
+        android:layout_below="@+id/b1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp"
+        android:visibility="visible">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Single Device"
+            android:textSize="20dp"
+            android:id="@+id/singleRBtn"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Two Devices"
+            android:textSize="20dp"
+            android:id="@+id/doubleRBtn"/>
+    </RadioGroup>
 
     <Button
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PLAY"
+        android:background="#FFA726"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:id="@+id/play"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/play"
+        android:layout_marginTop="54dp"
+        android:text="HighScores"
+        android:background="#FFA726"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        android:id="@+id/highScores"/>
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ABOUT"
         android:id="@+id/b3"
@@ -44,8 +111,6 @@
         android:background="#FFA726"
         android:textSize="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/b2"
-        android:layout_alignStart="@+id/b2"
-        android:layout_marginBottom="83dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

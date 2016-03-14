@@ -8,13 +8,14 @@ public class scoreboard {
     private int _score;
     private int _id;
 
-    public  scoreboard (){
+    public scoreboard() {
 
     }
-    public scoreboard(int id, String name,int score){
-        _id=id;
-        _name=name;
-        _score=score;
+
+    public scoreboard(int id, String name, int score) {
+        _id = id;
+        _name = name;
+        _score = score;
     }
 
     public String get_name() {
@@ -29,7 +30,9 @@ public class scoreboard {
         return _score;
     }
 
-    public void set_score(int _score) { this._score = _score; }
+    public void set_score(int _score) {
+        this._score = _score;
+    }
 
     public int get_id() {
         return _id;

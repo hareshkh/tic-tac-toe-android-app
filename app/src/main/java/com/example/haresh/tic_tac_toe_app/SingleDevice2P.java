@@ -7,6 +7,7 @@ import android.os.Bundle;
 public class SingleDevice2P extends AppCompatActivity {
 
     public static Activity act_2p_single;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         act_2p_single = this;
