@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.content.Intent;
 
 public class two_player_selector extends AppCompatActivity {
-    Button singleplay2p,doubleplay2p,high2p;
+    Button singleplay2p, doubleplay2p, high2p;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class two_player_selector extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(two_player_selector.this,two_player_names.class);
+                        Intent intent = new Intent(two_player_selector.this, two_player_names.class);
                         startActivity(intent);
                     }
                 }
@@ -28,7 +29,7 @@ public class two_player_selector extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(two_player_selector.this,TwoDevice2P_names.class);
+                        Intent intent = new Intent(two_player_selector.this, TwoDevice2P_names.class);
                         startActivity(intent);
                     }
                 }
@@ -37,7 +38,7 @@ public class two_player_selector extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(two_player_selector.this,highscores2p.class);
+                        Intent intent = new Intent(two_player_selector.this, highscores2p.class);
                         startActivity(intent);
                     }
                 }

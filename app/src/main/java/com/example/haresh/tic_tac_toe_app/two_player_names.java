@@ -23,6 +23,8 @@ public class two_player_names extends AppCompatActivity {
         setContentView(R.layout.activity_two_player_names);
         p1 = (EditText) findViewById(R.id.p1name);
         p2 = (EditText) findViewById(R.id.p2name);
+        p1.setText(p1Name);
+        p2.setText(p2Name);
         start2p = (Button) findViewById(R.id.start2p);
         start2p.setOnClickListener(
                 new View.OnClickListener() {

@@ -14,14 +14,14 @@ import java.util.List;
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    private static final int DATABSE_VERSION=1;
-    private static final String DATABASE_NAME="scoreboardManager",
-                                TABLE_SCORES="scoreboard",
-                                KEY_ID="id",
-                                KEY_NAME="name",
-                                KEY_SCORE="score";
+    private static final int DATABSE_VERSION = 1;
+    private static final String DATABASE_NAME = "scoreboardManager",
+            TABLE_SCORES = "scoreboard",
+            KEY_ID = "id",
+            KEY_NAME = "name",
+            KEY_SCORE = "score";
 
-    public DatabaseHandler(Context context){
+    public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABSE_VERSION);
 
     }
@@ -36,6 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISITS " + TABLE_SCORES);
         onCreate(db);
     }
+
     public void addScore(scoreboard sb) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -55,7 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_SCORES, new String[]{KEY_ID,
                         KEY_NAME, KEY_SCORE}, KEY_NAME + " = ?",
                 new String[]{String.valueOf(name)}, null, null, null, null);
-        if(cursor.getCount()>0){
+        if (cursor.getCount() > 0) {
             return "FOUND";
         }
         return "NOT FOUND";
@@ -64,9 +65,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public scoreboard getPlayer(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_SCORES, new String[] { KEY_ID,
-                        KEY_NAME, KEY_SCORE }, KEY_NAME + " = ?",
-                new String[] { String.valueOf(name) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_SCORES, new String[]{KEY_ID,
+                        KEY_NAME, KEY_SCORE}, KEY_NAME + " = ?",
+                new String[]{String.valueOf(name)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
@@ -110,7 +111,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //sortTable();
         // updating row
         return db.update(TABLE_SCORES, values, KEY_NAME + " = ?",
-                new String[] { String.valueOf(sb.get_name()) });
+                new String[]{String.valueOf(sb.get_name())});
     }
 
     public int getPlayerCount() {
@@ -121,11 +122,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
-    public void deleteAll()
-    {
+    public void deleteAll() {
         SQLiteDatabase db = this.getWritableDatabase();
         //db.delete(TABLE_NAME,null,null);
-        db.execSQL("delete from "+ TABLE_SCORES);
+        db.execSQL("delete from " + TABLE_SCORES);
         //db.execSQL("TRUNCATE table" + TABLE_NAME);
         //db.close();
     }

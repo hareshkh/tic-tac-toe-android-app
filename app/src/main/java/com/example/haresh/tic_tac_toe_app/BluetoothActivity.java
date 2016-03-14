@@ -60,7 +60,7 @@ public class BluetoothActivity extends Activity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String  itemValue = (String) listview.getItemAtPosition(position);
+                String itemValue = (String) listview.getItemAtPosition(position);
                 String MAC = itemValue.substring(itemValue.length() - 17);
                 BluetoothDevice bluetoothDevice = bluetoothAdapter.getRemoteDevice(MAC);
 
@@ -69,11 +69,11 @@ public class BluetoothActivity extends Activity {
             }
         });
 
-        adapter = new ArrayAdapter (this,android.R.layout.simple_list_item_1);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
         listview.setAdapter(adapter);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        if (bluetoothAdapter.isEnabled()){
+        if (bluetoothAdapter.isEnabled()) {
             bluetoothAdapter.disable();
             toggleButton.setChecked(false);
             adapter.clear();
@@ -88,14 +88,12 @@ public class BluetoothActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Oops! Your device does not support Bluetooth",
                     Toast.LENGTH_SHORT).show();
             toggleButton.setChecked(false);
-        }
-        else{
+        } else {
             toggleButton.setChecked(!bluetoothAdapter.isEnabled());
             if (bluetoothAdapter.isEnabled()) {
                 bluetoothAdapter.disable();
                 Toast.makeText(BluetoothActivity.this, "Bluetooth disabled", Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
                 ///bluetoothAdapter.enable(); //This does not ask for user to permit connection
                 Intent enableBluetoothIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBluetoothIntent, ENABLE_BT_REQUEST_CODE);
@@ -116,38 +114,32 @@ public class BluetoothActivity extends Activity {
                 t = new ListeningThread();
                 t.start();
 
-            }
-            else {
+            } else {
                 Toast.makeText(getApplicationContext(), "Bluetooth is not enabled.", Toast.LENGTH_SHORT).show();
                 toggleButton.setChecked(false);
             }
-        }
-        else if (requestCode == DISCOVERABLE_BT_REQUEST_CODE){
-            if (resultCode == DISCOVERABLE_DURATION){
+        } else if (requestCode == DISCOVERABLE_BT_REQUEST_CODE) {
+            if (resultCode == DISCOVERABLE_DURATION) {
                 Toast.makeText(getApplicationContext(), "Your device is now discoverable for " + DISCOVERABLE_DURATION + " seconds", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            } else {
                 Toast.makeText(getApplicationContext(), "Fail to enable discoverable mode.", Toast.LENGTH_SHORT).show();
             }
-        }
-
-        else if(resultCode == Finished_Activity){
+        } else if (resultCode == Finished_Activity) {
             bluetoothAdapter.disable();
             adapter.clear();
             toggleButton.setChecked(false);
         }
     }
 
-    protected void discoverDevices(){
+    protected void discoverDevices() {
         if (bluetoothAdapter.startDiscovery()) {
             Toast.makeText(getApplicationContext(), "Discovering peers", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             Toast.makeText(getApplicationContext(), "Discovery failed to start.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    protected void makeDiscoverable(){
+    protected void makeDiscoverable() {
         Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
         discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, DISCOVERABLE_DURATION);
         startActivityForResult(discoverableIntent, DISCOVERABLE_BT_REQUEST_CODE);
@@ -170,8 +162,8 @@ public class BluetoothActivity extends Activity {
 
         mBluetoothDevice = device;
         mBluetoothSocket = socket;
-        Intent intent = new Intent(this,TwoDevice2P.class);
-        startActivityForResult(intent,Finished_Activity);
+        Intent intent = new Intent(this, TwoDevice2P.class);
+        startActivityForResult(intent, Finished_Activity);
 
     }
 
@@ -183,8 +175,7 @@ public class BluetoothActivity extends Activity {
             try {
                 temp = bluetoothAdapter.listenUsingRfcommWithServiceRecord(getString(R.string.app_name), uuid);
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             bluetoothServerSocket = temp;
@@ -195,8 +186,7 @@ public class BluetoothActivity extends Activity {
             while (true) {
                 try {
                     bluetoothSocket = bluetoothServerSocket.accept();
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     break;
                 }
                 if (bluetoothSocket != null) {
@@ -207,12 +197,11 @@ public class BluetoothActivity extends Activity {
                         }
                     });
 
-                    connected(bluetoothSocket,bluetoothSocket.getRemoteDevice());
+                    connected(bluetoothSocket, bluetoothSocket.getRemoteDevice());
 
                     try {
                         bluetoothServerSocket.close();
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -241,8 +230,7 @@ public class BluetoothActivity extends Activity {
             // Get a BluetoothSocket to connect with the given BluetoothDevice
             try {
                 temp = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             bluetoothSocket = temp;
@@ -253,18 +241,16 @@ public class BluetoothActivity extends Activity {
 
             try {
                 bluetoothSocket.connect();
-            }
-            catch (IOException connectException) {
+            } catch (IOException connectException) {
                 connectException.printStackTrace();
                 try {
                     bluetoothSocket.close();
-                }
-                catch (IOException closeException) {
+                } catch (IOException closeException) {
                     closeException.printStackTrace();
                 }
             }
 
-            if(bluetoothSocket!=null && bluetoothDevice !=null){
+            if (bluetoothSocket != null && bluetoothDevice != null) {
                 connected(bluetoothSocket, bluetoothDevice);
             }
 
