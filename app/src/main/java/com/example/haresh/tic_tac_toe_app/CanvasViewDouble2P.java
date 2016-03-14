@@ -42,6 +42,10 @@ public class CanvasViewDouble2P extends View { //you have to create a new java f
     boolean touchEnabled = true;
     boolean oppontentRematch = false;
     boolean playerRematch = false;
+<<<<<<< HEAD
+=======
+    Timer t = new Timer();
+>>>>>>> 4f355ac5c7287693c6d9d3105db18cfd6fe5d9a4
     int cnt = 0;
     int[] time = {1000};
     BluetoothSocket bluetoothSocket;
